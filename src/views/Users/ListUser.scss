@@ -1,0 +1,26 @@
+.list-user-container {
+    .list-user-content {
+        .child {
+            width: 400px;
+            margin: 0 auto;
+            height: 40px;
+            border: 1px solid grey;
+        }
+    }
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+}
+
+table {
+    background-color: rgb(188, 38, 38);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 70px;
+}
