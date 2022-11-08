@@ -40,7 +40,7 @@ function Adduser(props) {
     return (
         <div>
             <Modal isOpen={props.modal} fade={false} toggle={props.toggle}>
-                <ModalHeader toggle={props.toggle}>Add New User</ModalHeader>
+                <ModalHeader >Add New User</ModalHeader>
                 <ModalBody>
                     <Form >
                         <FormGroup>

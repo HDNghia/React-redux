@@ -21,16 +21,6 @@ const App = () => {
 
         <header className="App-header">
           <Nav />
-          <img src={logo} className="App-logo" alt="logo" />
-
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-          </a>
           <Switch>
             <Route path="/" exact>
               <Home />

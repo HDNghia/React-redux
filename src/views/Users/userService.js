@@ -3,7 +3,7 @@ const getAllUsers = (inputId) => {
     return axios.get(`http://localhost:8080/api/v1/users`)
 }
 const createNewUserService = (data) => {
-    return axios.post(`http://localhost:8080/api/v1/create-user`, data)
+    return axios.post(`http://localhost:8080/api/v1/create-user`, data);
 }
 
 const deleteUserService = (userId) => {

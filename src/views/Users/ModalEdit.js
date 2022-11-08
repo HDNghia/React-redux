@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
-    Form, Row, FormGroup, Col, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter, Label
+    Form, FormGroup, Input, Button, Modal, ModalHeader, ModalBody, Label
 } from 'reactstrap';
 
 function ModalEdit(props) {
@@ -46,7 +46,7 @@ function ModalEdit(props) {
     return (
         <div>
             <Modal isOpen={props.modal} fade={false} toggle={props.toggle}>
-                <ModalHeader toggle={props.toggle}>Edit User</ModalHeader>
+                <ModalHeader>Edit User</ModalHeader>
                 <ModalBody>
                     <Form >
                         <FormGroup>

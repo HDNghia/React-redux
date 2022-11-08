@@ -1,0 +1,10 @@
+const actionTypes = {
+    FETCH_ROLE_FAILDED: 'FETCH_ROLE_FAIDED',
+
+    CREATE_USER_SUCCESS: 'SAVE_USER_SUCCESS',
+    CREATE_USER_FAILDED: 'SAVE_USER_FAILDED',
+
+    TEXT: 'TEXT',
+}
+
+export default actionTypes;

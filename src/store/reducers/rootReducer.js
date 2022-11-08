@@ -1,3 +1,6 @@
+import { createNewUser } from '../action/adminAction';
+import { createNewUserService } from '../../views/Users/userService';
+import actionTypes from '../action/actionType';
 const initState = {
     users: [
         { id: 1, name: 'Eric' },
@@ -6,8 +9,6 @@ const initState = {
     ],
     posts: []
 }
-
-
 const rootReducer = (state = initState, action) => {
 
     switch (action.type) {
@@ -24,10 +25,17 @@ const rootReducer = (state = initState, action) => {
             return {
                 ...state, users: [...state.users, user]
             }
+        case 'CREATE_NEW_USER':
+            createNewUser(action.payload);
+        case actionTypes.TEXT:
+            alert('vao roi nha');
+        case actionTypes.CREATE_USER_SUCCESS:
+            alert('Save user successed')
+        case actionTypes.CREATE_USER_FAILDED:
+            alert('Save user failed')
         default:
             return state;
     }
-    return state;
 }
 
 export default rootReducer;

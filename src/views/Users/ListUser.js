@@ -22,7 +22,6 @@ function ListUser(props) {
             })
         }
         fetchMyAPI()
-
     })
     const handleViewDetailUser = (user) => {
         props.history.push(`/user/${user.id}`)
@@ -63,9 +62,6 @@ function ListUser(props) {
     }
     return (
         <div className="list-user-container">
-            <Button color="danger" onClick={toggle}>
-                Add New User
-            </Button>
             <Adduser
                 modal={modal}
                 toggle={toggle}
@@ -81,36 +77,40 @@ function ListUser(props) {
                 />
             }
 
-            <div className="title">
-                fetch all list users
-            </div>
 
-            <table>
-                <tr>
-                    <th>stt</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Action</th>
-                </tr>
-                {state.ListUsers && state.ListUsers.length > 0 &&
-                    state.ListUsers.map((item, index) => {
-                        return (
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>stt</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {state.ListUsers && state.ListUsers.length > 0 &&
+                        state.ListUsers.map((item, index) => {
+                            return (
 
-                            <tr className="child" key={item.id}
-                                onClick={() => handleViewDetailUser(item)}
-                            >
-                                <td>{index + 1}</td>
-                                <td>{item.firstName}</td>
-                                <td>{item.lastName}</td>
-                                <td>
-                                    <button onClick={() => handleEditUser(item)}>Edit</button>
-                                    <button onClick={() => handleDeleteUser(item.id)}>Delete</button>
-                                </td>
-                            </tr>
-                        )
-                    })
-                }
+                                <tr className="child" key={item.id}
+                                    onClick={() => handleViewDetailUser(item)}
+                                >
+                                    <td>{index + 1}</td>
+                                    <td>{item.firstName}</td>
+                                    <td>{item.lastName}</td>
+                                    <td>
+                                        <button onClick={() => handleEditUser(item)}>Edit</button>
+                                        <button onClick={() => handleDeleteUser(item.id)}>Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
             </table>
+            <Button color="danger" onClick={toggle}>
+                Add New User
+            </Button>
         </div>
     );
 }

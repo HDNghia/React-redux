@@ -1,4 +1,7 @@
 .list-user-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
     .list-user-content {
         .child {
             width: 400px;
@@ -9,11 +12,6 @@
     }
 }
 
-table,
-td,
-th {
-    border: 1px solid black;
-}
 
 table {
     background-color: rgb(188, 38, 38);
