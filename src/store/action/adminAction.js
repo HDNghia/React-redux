@@ -1,17 +1,63 @@
 import actionTypes from './actionType';
-import { createNewUserService } from '../../views/Users/userService';
+import axios from 'axios';
 
-const createNewUser = async (data) => {
+export const createNewUser = (data) => {
     try {
-        await createNewUserService(data);
-        alert('nghiaaa');
+        // let res = await createNewUserService(data);
+        let res = axios.post(`http://localhost:8080/api/v1/create-user`, data);
+        if (res) {
+            return {
+                type: actionTypes.CREATE_USER_SUCCESS
+            }
+        }
     }
     catch (e) {
         console.log('saveUserFailed error', e)
     }
 }
-const test = () => ({
-    type: actionTypes.TEXT
+export const readUser = (data) => ({
+    type: actionTypes.READ_USER,
+    payload: data
 })
+// deleteUserRedux: (userDelete) => dispatch(userDeleted(userDelete)),
+export const userDeleted = (data) => {
+    try {
+        let res = axios.delete(`http://localhost:8080/api/v1/delete-user/${data}`);
+        if (res) {
+            return {
+                type: actionTypes.DELETE_USER
+            }
+        }
+    }
+    catch (e) {
+        console.log('DeleteUserFailed error', e)
+    }
+}
+// try {
+//     let res = await updateUser(data);
+//     console.log('response create user: ', res)
+//     toggleEdit()
+// } catch (error) {
+//     console.log(error)
+// }
+export const editUser = (data) => {
+    try {
+        let res = axios.put(`http://localhost:8080/api/v1/update-user`, data);
+        if (res) {
+            return {
+                type: actionTypes.EDIT_USER
+            }
+        }
+    }
+    catch (e) {
+        console.log('EidtUserFailed error', e)
+    }
+}
 
-export { createNewUser, test }
+export const createUserRandom = () => {
+    return {
+        type: actionTypes.CREATE_USER_RAMDOM
+    }
+}
+
+// export { createNewUser, test }

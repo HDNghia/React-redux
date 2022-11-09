@@ -3,8 +3,9 @@ import {
     Form, FormGroup, Input, Button, Modal, ModalHeader, ModalBody, Label
 } from 'reactstrap';
 
-function ModalEdit(props) {
+function EditUser(props) {
     let user = props.currentUser
+    // console.log(user);
     const [state, setState] = useState({
         id: user.UserEdit.id,
         firstName: user.UserEdit.firstName,
@@ -12,7 +13,6 @@ function ModalEdit(props) {
         email: user.UserEdit.email,
         address: user.UserEdit.address
     });
-    console.log('check state: ', state.id);
     const handleOnchangeInput = (event, item) => {
         let copyState = { ...state }
         copyState[item] = event.target.value;
@@ -116,4 +116,4 @@ function ModalEdit(props) {
     );
 }
 
-export default ModalEdit;
+export default EditUser;
