@@ -37,7 +37,7 @@ function EditUser(props) {
         let isValid = checkValideInput();
         if (isValid === true) {
             props.updateUser(state);
-            console.log("data modal: ", state);
+            
         }
     }
     // setCurrentUser({

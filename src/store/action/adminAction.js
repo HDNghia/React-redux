@@ -5,7 +5,7 @@ export const createNewUser = (data) => {
     try {
         // let res = await createNewUserService(data);
         let res = axios.post(`http://localhost:8080/api/v1/create-user`, data);
-        if (res) {
+        if (res && res.errCode === 0) {
             return {
                 type: actionTypes.CREATE_USER_SUCCESS
             }
@@ -23,7 +23,7 @@ export const readUser = (data) => ({
 export const userDeleted = (data) => {
     try {
         let res = axios.delete(`http://localhost:8080/api/v1/delete-user/${data}`);
-        if (res) {
+        if (res ) {
             return {
                 type: actionTypes.DELETE_USER
             }
@@ -33,13 +33,6 @@ export const userDeleted = (data) => {
         console.log('DeleteUserFailed error', e)
     }
 }
-// try {
-//     let res = await updateUser(data);
-//     console.log('response create user: ', res)
-//     toggleEdit()
-// } catch (error) {
-//     console.log(error)
-// }
 export const editUser = (data) => {
     try {
         let res = axios.put(`http://localhost:8080/api/v1/update-user`, data);
